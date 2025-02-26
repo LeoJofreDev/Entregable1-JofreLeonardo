@@ -19,12 +19,13 @@ const nombresPermitidos = ["Julia", "Pedro", "Leonardo"];
 /* Función de bienvenida, sólo para empleados cargados en el sistema */
 
 function saludarEmpleado() {
-    while (true) {
+    let nombreEmpleadoValido = false;
+    while (!nombreEmpleadoValido) {
         nombreEmpleado = prompt('Por favor, ingrese su nombre:');
         if (validarLista(nombreEmpleado, nombresPermitidos)) {
             alert(`Hola, ${nombreEmpleado}! Bienvenido al asistente para trabajadores.`);
             mostrarMenu();
-            break;
+            nombreEmpleadoValido = true;
         }
     }
 }
@@ -80,11 +81,12 @@ function verProximosFeriados() {
 }
 
 function solicitarComida() {
-    while (true) {
+    let solicitudValida = false;
+    while (!solicitudValida) {
         const comida = prompt('¿Desea almuerzo o cena?');
         if (comida === 'almuerzo' || comida === 'cena') {
             alert(`Su solicitud de ${comida} ha sido recibida con éxito.`);
-            break;
+            solicitudValida = true;
         } else {
             alert('Por favor, decida por almuerzo o cena');
         }
